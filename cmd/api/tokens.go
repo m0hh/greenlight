@@ -193,7 +193,7 @@ func (app *application) createActivationTokenHandler(w http.ResponseWriter, r *h
 		// Since email addresses MAY be case sensitive, notice that we are sending this
 		// email using the address stored in our database for the user --- not to the
 		// input.Email address provided by the client in this request.
-		err = app.mailer.Send(user.Email, "token_activation.tmpl", data)
+		err = app.mailer.Send(user.Email, "token_activation.html", data)
 		if err != nil {
 			app.logger.PrintError(err, nil)
 		}
